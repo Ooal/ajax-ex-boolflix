@@ -10,41 +10,52 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script id="template-star" type="text/x-handlebars-template">
+      <span class="voto"><i class="fas fa-star"></i></span>
+    </script>
     <script id="template-film" type="text/x-handlebars-template">
       <div class="film">
         <div class="img">
-          <img src="https://image.tmdb.org/t/p/w185{{poster_path}}" alt="coprtina">
+          <img src="https://image.tmdb.org/t/p/w185{{poster_path}}" alt="not found">
         </div>
+        <h3>{{title}}</h3>
+        <div class="infoFilm">
         <h5>{{title}}</h5>
-        <span class="title">Titolo Originale: {{original_title}}</span>
-        <span class="language">Lingua: {{original_language}}</span>
-        <span class="vote">Voto: {{vote_average}}</span>
+        <h6 class="title">Titolo Originale: {{original_title}}</h6>
+        <h6 class="language">Lingua: {{original_language}}</h6>
+        <h6 class="vote">Voto: {{vote_average}}</h6>
+        <div class="stelle"></div>
+        </div>
       </div>
     </script>
     <script id="template-serie" type="text/x-handlebars-template">
       <div class="serie">
         <div class="img">
-          <img src="https://image.tmdb.org/t/p/w185{{poster_path}}" alt="coprtina">
+          <img src="https://image.tmdb.org/t/p/w185{{poster_path}}" alt="not found">
         </div>
+        <h3>{{name}}</h3>
+        <div class="infoSerie">
         <h5>{{name}}</h5>
-        <span class="title">Titolo Originale: {{original_name}}</span>
-        <span class="language">Lingua: {{original_language}}</span>
-        <span class="vote">Voto: {{vote_average}}</span>
+        <h6 class="title">Titolo Originale: {{original_name}}</h6>
+        <h6 class="language">Lingua: {{original_language}}</h6>
+        <h6 class="vote">Voto: {{vote_average}}</h6>
+      </div>
       </div>
     </script>
     <script src="main.js" charset="utf-8"></script>
   </head>
   <body>
-    <select id="selectSerieFilm"class="" name="">
-      <option value="Entrambi">Entrambi</option>
-      <option value="Film">Film</option>
-      <option value="SerieTv">Serie Tv</option>
-    </select>
-    <input id="ricerca"type="text" name="" value="">
-    <i id="lenteRicerca" class="fas fa-search"></i>
-    <div id="risultati">
-
-    </div>
+    <header>
+      <select id="selectSerieFilm"class="" name="">
+        <option value="Entrambi">Entrambi</option>
+        <option value="Film">Film</option>
+        <option value="SerieTv">Serie Tv</option>
+      </select>
+      <input id="ricerca"type="text" name="" value="">
+      <i id="lenteRicerca" class="fas fa-search"></i>
+    </header>
+    <main>
+      <div id="risultati"></div>
+    </main>
   </body>
 </html>

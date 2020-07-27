@@ -4,7 +4,12 @@
   font-family: 'Mulish', sans-serif;
   box-sizing: border-box;
 }
+body {
+  background-color: #141414;
+  color: white;
+}
 #selectSerieFilm{
+  color: white;
   border: none;
   background-color: transparent;
 }
@@ -22,24 +27,55 @@
   padding: 100px 0;
 }
 .film , .serie {
-  border-radius: 20px;
+  cursor: pointer;
   display: flex;
+  border: 1px solid;
+  flex-basis: 187px;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  flex-basis: 200px;
-  padding: 20px;
   margin: 20px 20px;
-  height: 480px;
-  background-color: black;
+  min-height: 350px;
   text-align: center;
 }
+
 
 .film .img, .serie .img {
 width: 185px;
 height: 274px;
 }
+.film .img img, .serie .img img {
+width: 185px;
+height: 274px;
+}
 
+.infoFilm , .infoSerie {
+  display: none;
+  flex-basis: 187px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 20px;
+
+  text-align: center;
+}
+.active {
+  display: flex;
+  border: 1px solid;
+  flex-basis: 187px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 20px;
+  min-height: 350px;
+  text-align: center;
+}
+.film h3, .serie h3 {
+  margin: 20px 0;
+  color: white;
+  font-size: 15px;
+  text-transform: uppercase;
+}
 .film h5, .serie h5 {
   margin: 20px 0;
   color: white;
@@ -47,18 +83,13 @@ height: 274px;
   text-transform: uppercase;
 }
 
-.film span.title, .serie span.title {
+.film h6.title, .film h6.language, .serie h6.title, .serie h6.language  {
   color: grey;
   font-size: 13px;
-  padding-bottom: 3px;
-}
-.film span.language, .serie span.language {
-  color: grey;
-  font-size: 13px;
-  padding-bottom: 3px;
+  padding-bottom: 6px;
 }
 
-.film span.vote, .serie span.vote {
+.film h6.vote, .serie h6.vote {
   color: red;
   font-size: 13px;
 }
