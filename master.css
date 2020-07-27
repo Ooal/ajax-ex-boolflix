@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Mulish', sans-serif;
+  box-sizing: border-box;
+}
+#selectSerieFilm{
+  border: none;
+  background-color: transparent;
+}
+#lenteRicerca{
+  cursor: pointer;
+}
+#risultati {
+  width: 1500px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 100px 0;
+}
+.film , .serie {
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 200px;
+  padding: 20px;
+  margin: 20px 20px;
+  height: 480px;
+  background-color: black;
+  text-align: center;
+}
+
+.film .img, .serie .img {
+width: 185px;
+height: 274px;
+}
+
+.film h5, .serie h5 {
+  margin: 20px 0;
+  color: white;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.film span.title, .serie span.title {
+  color: grey;
+  font-size: 13px;
+  padding-bottom: 3px;
+}
+.film span.language, .serie span.language {
+  color: grey;
+  font-size: 13px;
+  padding-bottom: 3px;
+}
+
+.film span.vote, .serie span.vote {
+  color: red;
+  font-size: 13px;
+}
