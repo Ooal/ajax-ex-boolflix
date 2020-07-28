@@ -54,19 +54,33 @@ header{
  border-bottom:1px solid #e50914;
 }
 #risultati {
-  width: 1500px;
+  width: 1900px;
   height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 100px 0;
+  padding: 0 0 30px 0;
+}
+#filmlist,#serielist{
+  display: block;
+  width: 1800px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 50px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid white;
+}
+#filmlist a ,#serielist a {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
 }
 .film , .serie {
   cursor: pointer;
   display: flex;
-
   flex-basis: 187px;
   justify-content: flex-start;
   align-items: center;

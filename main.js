@@ -16,7 +16,7 @@ function ajaxFilm(search){
         var compiled = Handlebars.compile(template);
         var target = $('#risultati');
         var filmHtml = compiled(dati);
-        target.append(filmHtml);
+        target.prepend(filmHtml);
       }
   },
     error: function(err) {
@@ -100,16 +100,40 @@ function copertina(){
   $(this).siblings('.img').show();
 }
 
+function filmlist(list) {
+  var template = $('#film-list').html();
+  var compiled = Handlebars.compile(template);
+  var target = $('main');
+  var listHtml = compiled(list);
+  target.prepend(listHtml);
+}
+
+function serielist(list) {
+  var template = $('#serie-list').html();
+  var compiled = Handlebars.compile(template);
+  var target = $('#risultati');
+  var listHtml = compiled(list);
+  target.append(listHtml);
+}
+
 function search(){
   $('#risultati div').remove();
+  $('main h2').remove();
   var search = $('#ricerca').val();
   var filmOSerie = $('#selectSerieFilm').val();
   console.log(filmOSerie);
+  var list = {
+    search : search
+  }
   if (filmOSerie == 'Film' ) {
+    filmlist(list);
     ajaxFilm(search);
   } else if (filmOSerie == 'SerieTv') {
-    ajaxSerie();
+    serielist(list);
+    ajaxSerie(search);
   } else {
+    filmlist(list);
+    serielist(list);
     ajaxFilm(search);
     ajaxSerie(search);
   }
