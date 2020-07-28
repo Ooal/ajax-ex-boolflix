@@ -89,6 +89,11 @@ height: 274px;
   padding-bottom: 6px;
 }
 
+.film h6.language img{
+  width: 27px;
+  height: 15px;
+}
+
 .film h6.vote, .serie h6.vote {
   color: red;
   font-size: 13px;

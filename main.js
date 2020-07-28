@@ -8,9 +8,9 @@ function ajaxFilm(search){
         var dati = {
           original_title : results[i].original_title,
           title : results[i].title,
-          original_language : results[i].original_language,
+          original_language : flag(results[i].original_language),
           poster_path : results[i].poster_path,
-          vote_average : Math.ceil(results[i].vote_average)
+          vote_average :star(results[i].vote_average)
         }
         var template = $('#template-film').html();
         var compiled = Handlebars.compile(template);
@@ -34,9 +34,9 @@ function ajaxSerie(search){
         var dati = {
           original_name : results[i].original_name,
           name : results[i].name,
-          original_language : results[i].original_language,
+          original_language : flag(results[i].original_language),
           poster_path : results[i].poster_path,
-          vote_average : Math.ceil(results[i].vote_average)
+          vote_average : star(results[i].vote_average)
         }
         var template = $('#template-serie').html();
         var compiled = Handlebars.compile(template);
@@ -49,6 +49,37 @@ function ajaxSerie(search){
       console.log('err', err);
     }
   });
+}
+
+function star(vote){
+  var voteInt = Math.floor(vote/2); // 300
+  var star = "";
+  for (var i=0;i<5;i++) {
+    if (i < voteInt) {
+      star += '<i class="fas fa-star"></i>';
+    } else {
+      star += '<i class="far fa-star"></i>';
+    }
+  }
+  return star;
+}
+
+function flag(lang) {
+
+  var lingue = [
+    "it",
+    "en",
+    "jp",
+    "fr",
+    "es",
+  ];
+  var bandiera = "";
+  if (lingue.includes(lang)) {
+    bandiera = "<img src='img/" + lang + ".png'>";
+  } else {
+    bandiera = lang;
+  }
+  return bandiera;
 }
 
 function pressInvioMsg (){
