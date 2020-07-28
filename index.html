@@ -12,9 +12,8 @@
     <script id="template-film" type="text/x-handlebars-template">
       <div class="film" >
         <div class="img">
-          <img src="https://image.tmdb.org/t/p/w185{{poster_path}}" alt="not found">
+          <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" alt="not found">
         </div>
-        <h3>{{title}}</h3>
         <div class="infoFilm">
         <h5>{{title}}</h5>
         <h6 class="title">Titolo Originale: {{original_title}}</h6>
@@ -26,9 +25,8 @@
     <script id="template-serie" type="text/x-handlebars-template">
       <div class="serie">
         <div class="img">
-          <img src="https://image.tmdb.org/t/p/w185{{poster_path}}" alt="not found">
+          <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" alt="not found">
         </div>
-        <h3>{{name}}</h3>
         <div class="infoSerie">
         <h5>{{name}}</h5>
         <h6 class="title">Titolo Originale: {{original_name}}</h6>
@@ -41,13 +39,19 @@
   </head>
   <body>
     <header>
-      <select id="selectSerieFilm"class="" name="">
-        <option value="Entrambi">Entrambi</option>
-        <option value="Film">Film</option>
-        <option value="SerieTv">Serie Tv</option>
-      </select>
-      <input id="ricerca"type="text" name="" value="">
-      <i id="lenteRicerca" class="fas fa-search"></i>
+      <div id="logo">
+        <h1>BOOLFLIX</h1>
+      </div>
+      <div id="select">
+        <select id="selectSerieFilm"class="" name="">
+          <option value="Entrambi">Entrambi</option>
+          <option value="Film">Film</option>
+          <option value="SerieTv">Serie Tv</option>
+        </select>
+        <input id="ricerca"type="text" name="" value="" placeholder="Search...">
+        <i id="lenteRicerca" class="fas fa-search"></i>
+      </div>
+
     </header>
     <main>
       <div id="risultati"></div>
