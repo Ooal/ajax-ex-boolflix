@@ -69,7 +69,7 @@ function flag(lang) {
   var lingue = [
     "it",
     "en",
-    "jp",
+    "ja",
     "fr",
     "es",
   ];
