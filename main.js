@@ -4,6 +4,7 @@ function ajaxFilm(search){
     method: "GET",
     success: function (data) {
       var results = data.results;
+      console.log(data);
       for (var i = 0; i < results.length; i++) {
         var dati = {
           original_title : results[i].original_title,
