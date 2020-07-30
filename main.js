@@ -4,15 +4,16 @@ function ajaxFilm(search){
     method: "GET",
     success: function (data) {
       var results = data.results;
-      console.log(data);
       for (var i = 0; i < results.length; i++) {
         var dati = {
           original_title : results[i].original_title,
           title : results[i].title,
           original_language : flag(results[i].original_language),
           poster_path : results[i].poster_path,
-          vote_average :star(results[i].vote_average)
+          vote_average :star(results[i].vote_average),
+          id : actor(results[i].id)
         }
+        console.log(dati.id);
         var template = $('#template-film').html();
         var compiled = Handlebars.compile(template);
         var target = $('#risultati');
@@ -37,8 +38,10 @@ function ajaxSerie(search){
           name : results[i].name,
           original_language : flag(results[i].original_language),
           poster_path : results[i].poster_path,
-          vote_average : star(results[i].vote_average)
+          vote_average : star(results[i].vote_average),
+          id : actor(results[i].id)
         }
+        console.log(dati);
         var template = $('#template-serie').html();
         var compiled = Handlebars.compile(template);
         var target = $('#risultati');
@@ -50,6 +53,23 @@ function ajaxSerie(search){
       console.log('err', err);
     }
   });
+}
+
+function actor(idfilm){
+
+  $.ajax({url: "https://api.themoviedb.org/3/movie/"+ idfilm +"/credits?api_key=2949182a20ec9f3c52a5bedc673809f5",
+    method: "GET",
+    success: function (data) {
+      var actor = "";
+      var cast = data.cast;
+      for (var i = 0; i < 5; i++) {
+        var name = cast[i].name;
+        actor += "<span> "+ name +" </span>";
+        }
+        console.log(actor);
+        return actor;
+  }
+});
 }
 
 function star(vote){
