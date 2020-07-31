@@ -5,20 +5,15 @@ function ajaxFilm(search){
     success: function (data) {
       var results = data.results;
       for (var i = 0; i < results.length; i++) {
-        var dati = {
+        var datifilm = {
           original_title : results[i].original_title,
           title : results[i].title,
           original_language : flag(results[i].original_language),
           poster_path : results[i].poster_path,
           vote_average :star(results[i].vote_average),
-          id : actor(results[i].id)
+          id : results[i].id
         }
-        console.log(dati.id);
-        var template = $('#template-film').html();
-        var compiled = Handlebars.compile(template);
-        var target = $('#risultati');
-        var filmHtml = compiled(dati);
-        target.prepend(filmHtml);
+        castactfilm(datifilm);
       }
   },
     error: function(err) {
@@ -33,20 +28,15 @@ function ajaxSerie(search){
     success: function (data) {
       var results = data.results;
       for (var i = 0; i < results.length; i++) {
-        var dati = {
+        var datiserie = {
           original_name : results[i].original_name,
           name : results[i].name,
           original_language : flag(results[i].original_language),
           poster_path : results[i].poster_path,
           vote_average : star(results[i].vote_average),
-          id : actor(results[i].id)
+          id : results[i].id
         }
-        console.log(dati);
-        var template = $('#template-serie').html();
-        var compiled = Handlebars.compile(template);
-        var target = $('#risultati');
-        var filmHtml = compiled(dati);
-        target.append(filmHtml);
+        castactserie(datiserie);
       }
   },
     error: function(err) {
@@ -55,25 +45,48 @@ function ajaxSerie(search){
   });
 }
 
-function actor(idfilm){
-
-  $.ajax({url: "https://api.themoviedb.org/3/movie/"+ idfilm +"/credits?api_key=2949182a20ec9f3c52a5bedc673809f5",
+function castactfilm(datifilm){
+  var actor = "";
+  $.ajax({url: "https://api.themoviedb.org/3/movie/"+ datifilm.id +"/credits?api_key=2949182a20ec9f3c52a5bedc673809f5",
     method: "GET",
     success: function (data) {
-      var actor = "";
       var cast = data.cast;
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 5 && i < cast.length ; i++) {
         var name = cast[i].name;
-        actor += "<span> "+ name +" </span>";
+        actor +=  "<span> "+ name +","+" </span> ";
         }
-        console.log(actor);
-        return actor;
+        datifilm.actor = actor;
+        var template = $('#template-film').html();
+        var compiled = Handlebars.compile(template);
+        var target = $('#risultati');
+        var filmHtml = compiled(datifilm);
+        target.prepend(filmHtml);
+  }
+});
+}
+
+function castactserie(datiserie){
+  var actor = "";
+  $.ajax({url: "https://api.themoviedb.org/3/tv/"+ datiserie.id +"/credits?api_key=2949182a20ec9f3c52a5bedc673809f5",
+    method: "GET",
+    success: function (data) {
+      var cast = data.cast;
+      for (var i = 0; i < 5 && i < cast.length ; i++) {
+        var name = cast[i].name;
+        actor +=  "<span> "+ name +","+" </span> ";
+        }
+        datiserie.actor = actor;
+        var template = $('#template-serie').html();
+        var compiled = Handlebars.compile(template);
+        var target = $('#risultati');
+        var filmHtml = compiled(datiserie);
+        target.append(filmHtml);
   }
 });
 }
 
 function star(vote){
-  var voteInt = Math.floor(vote/2); // 300
+  var voteInt = Math.floor(vote/2);
   var star = "";
   for (var i=0;i<5;i++) {
     if (i < voteInt) {

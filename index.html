@@ -20,28 +20,28 @@
     <script id="template-film" type="text/x-handlebars-template">
       <div class="film" >
         <div class="img">
-          <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/proxy/YDyX7oflKMkofFNqgapZ-EtnaqVI08P6-N4g-G81bvQTTTc6Lp0nK770AFd7xEKPxS-COJmVvA6qn1KUyJ4hBc17VNJYfasu5Y4GiAyLyKtGMkErHpZitqyceLw'" alt="">
+          <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" onerror="this.onerror=null; this.src='https://image.shutterstock.com/image-vector/404-not-found-problem-disconnect-600w-721322569.jpg'" alt="">
         </div>
         <div class="infoFilm">
         <h5>{{title}}</h5>
         <h6 class="title">Titolo Originale: {{original_title}}</h6>
-        <h6 class="language">Lingua: {{{original_language}}}</h6>
+        <h6 class="language">Lingua: {{{original_language}}} </h6>
         <h6 class="vote">{{{vote_average}}}</h6>
-        <h6>{{{id}}}</h6>
+        <h6 class="language">Attori principali: {{{actor}}}</h6>
       </div>
     </script>
 
     <script id="template-serie" type="text/x-handlebars-template">
       <div class="serie">
         <div class="img">
-          <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/proxy/YDyX7oflKMkofFNqgapZ-EtnaqVI08P6-N4g-G81bvQTTTc6Lp0nK770AFd7xEKPxS-COJmVvA6qn1KUyJ4hBc17VNJYfasu5Y4GiAyLyKtGMkErHpZitqyceLw'" alt="">
+          <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" onerror="this.onerror=null; this.src='https://image.shutterstock.com/image-vector/404-not-found-problem-disconnect-600w-721322569.jpg'" alt="">
         </div>
         <div class="infoSerie">
         <h5>{{name}}</h5>
         <h6 class="title">Titolo Originale: {{original_name}}</h6>
-        <h6 class="language">Lingua: {{{original_language}}}</h6>
+        <h6 class="language">Lingua: {{{original_language}}} </h6>
         <h6 class="vote">{{{vote_average}}}</h6>
-        <div>{{{id}}}</h6>
+        <h6 class="language">Attori principali: {{{actor}}}</h6>
       </div>
       </div>
     </script>
